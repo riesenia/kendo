@@ -82,6 +82,10 @@ class Base implements \JsonSerializable
             $this->_data[$name] = array();
         }
 
+        if (is_null($key)) {
+            $key = count($this->_data[$name]);
+        }
+
         $this->_data[$name][$key] = $value;
 
         return $this;
