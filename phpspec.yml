@@ -1,0 +1,4 @@
+suites:
+    kendo_suite:
+        namespace: Kendo
+        psr4_prefix: Kendo
