@@ -1,0 +1,22 @@
+{
+    "name": "riesenia/kendo",
+    "description": "PHP wrapper for Kendo UI widgets",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tomas Saghy",
+            "email": "segy@riesenia.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpspec/phpspec": "~2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kendo\\": "src/"
+        }
+    }
+}
