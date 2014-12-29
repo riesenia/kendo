@@ -1,5 +1,10 @@
 # PHP wrapper for Kendo UI widgets
 
+[![Total Downloads](https://poser.pugx.org/riesenia/kendo/downloads.svg)](https://packagist.org/packages/riesenia/kendo)
+[![Latest Stable Version](https://poser.pugx.org/riesenia/kendo/v/stable.svg)](https://packagist.org/packages/riesenia/kendo)
+[![Latest Unstable Version](https://poser.pugx.org/riesenia/kendo/v/unstable.svg)](https://packagist.org/packages/riesenia/kendo)
+[![License](https://poser.pugx.org/riesenia/kendo/license.svg)](https://packagist.org/packages/riesenia/kendo)
+
 [Kendo UI](http://www.telerik.com/kendo-ui) is a great JavaScript library. It offers both open-source and commercial editions.
 
 This library provides a wrapper for all Kendo UI widgets. Telerik provides [PHP wrappers](http://www.telerik.com/php-ui) itself,
@@ -12,11 +17,13 @@ Install the latest version using `composer require riesenia/kendo`
 
 Or add to your *composer.json* file as a requirement:
 
-    {
-        "require": {
-            "riesenia/kendo": "~1.0"
-        }
+```json
+{
+    "require": {
+        "riesenia/kendo": "~1.0"
     }
+}
+```
 
 ## Usage
 
