@@ -124,11 +124,11 @@ class Base implements \JsonSerializable
     protected function _encode()
     {
         // json encode
-        $data = json_encode($this);
+        $data = json_encode($this, JSON_UNESCAPED_SLASHES);
 
         // replace markup by JavacriptFunction
         $data = preg_replace_callback('/"::FUNCTION::(.*?)::FUNCTION::"/', function ($matches) {
-            return stripslashes($matches[1]);
+            return stripcslashes($matches[1]);
         }, $data);
 
         return $data;
