@@ -14,6 +14,6 @@ class HierarchicalDataSourceSpec extends ObjectBehavior
 
     public function it_renders_correctly()
     {
-        $this->__toString()->shouldReturn('new kendo.data.HierarchicalDataSource(null)');
+        $this->__toString()->shouldReturn('new kendo.data.HierarchicalDataSource(null);');
     }
 }

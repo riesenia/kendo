@@ -14,6 +14,6 @@ class DataSourceSpec extends ObjectBehavior
 
     public function it_renders_correctly()
     {
-        $this->__toString()->shouldReturn('new kendo.data.DataSource(null)');
+        $this->__toString()->shouldReturn('new kendo.data.DataSource(null);');
     }
 }

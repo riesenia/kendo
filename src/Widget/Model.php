@@ -36,6 +36,6 @@ class Model extends Base
     {
         $data = $this->_encode();
 
-        return $this->_name . '.define(' . $data . ')';
+        return $this->_name . '.define(' . $data . ');';
     }
 }

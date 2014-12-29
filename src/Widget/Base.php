@@ -145,10 +145,10 @@ class Base implements \JsonSerializable
 
         // binding to jquery object
         if ($this->_bindTo) {
-            return '$("' . $this->_bindTo . '").' . $this->_name . '(' . $data . ')';
+            return '$("' . $this->_bindTo . '").' . $this->_name . '(' . $data . ');';
         }
 
-        return 'new ' . $this->_name . '(' . $data . ')';
+        return 'new ' . $this->_name . '(' . $data . ');';
     }
 
     /**

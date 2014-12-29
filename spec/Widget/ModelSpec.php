@@ -14,6 +14,6 @@ class ModelSpec extends ObjectBehavior
 
     public function it_renders_correctly()
     {
-        $this->__toString()->shouldReturn('kendo.data.Model.define(null)');
+        $this->__toString()->shouldReturn('kendo.data.Model.define(null);');
     }
 }
