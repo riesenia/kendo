@@ -104,6 +104,36 @@ echo Kendo::createGrid('#grid')
     ]);
 ```
 
+### Observable (MVVM)
+
+Rendering for [Kendo observable](http://demos.telerik.com/kendo-ui/mvvm/index "MVVM - basic usage") is slightly different. Predefined
+variable name is *viewModel*, but this can be overridden by the method *variableName*. Example:
+
+```php
+use Kendo\Kendo; 
+
+echo Kendo::createObservable('#view')
+    ->variableName('myMvvm')
+    ->setFirstName('John')
+    ->setLastName('Doe')
+    ->setDisplayGreeting(Kendo::js('function() {
+        alert("Hello, " + this.get("firstName") + " " + this.get("lastName") + "!!!");
+    }'));
+```
+
+This will output:
+
+```javascript
+myMvvm = kendo.observable({
+    "firstName": "John",
+    "lastName": "Doe",
+    "displayGreeting": function () {
+        alert("Hello, " + this.get("firstName") + " " + this.get("lastName") + "!!!");
+    }
+});
+kendo.bind($("#view"), myMvvm);
+```
+
 ## Tests
 
 You can run the unit tests with the following command:
