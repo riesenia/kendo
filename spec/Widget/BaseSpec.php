@@ -34,6 +34,16 @@ class BaseSpec extends ObjectBehavior
         $this->set('property', 'value')->get('property')->shouldReturn('value');
     }
 
+    public function it_can_add_to_data()
+    {
+        $this->add('property', 'key1', 'value1')->add('property', 'key2', 'value2')->get('property')->shouldReturn(array('key1' => 'value1', 'key2' => 'value2'));
+    }
+
+    public function it_can_add_to_data_with_null_key()
+    {
+        $this->add('property', null, 'value1')->add('property', null, 'value2')->get('property')->shouldReturn(array(0 => 'value1', 1 => 'value2'));
+    }
+
     public function it_json_encodes_data()
     {
         $this->set('property', 'value')->__toString()->shouldReturn('new kendoGrid({"property":"value"});');
@@ -42,5 +52,14 @@ class BaseSpec extends ObjectBehavior
     public function it_does_not_json_encode_functions()
     {
         $this->set('property', Kendo::js('function () {}'))->__toString()->shouldReturn('new kendoGrid({"property":function () {}});');
+    }
+
+    public function it_encodes_passed_object_properly()
+    {
+        $this->set('dataSource', Kendo::createDataSource()->set('property', Kendo::js('function () {
+            void(0);
+        }')))->__toString()->shouldReturn('new kendoGrid({"dataSource":{"property":function () {
+            void(0);
+        }}});');
     }
 }
