@@ -1,5 +1,5 @@
 <?php
-namespace Kendo;
+namespace Riesenia\Kendo;
 
 /**
  * Factory for Kendo UI widgets
@@ -13,7 +13,7 @@ class Kendo
      *
      * @param string widget name
      * @param string optional binding
-     * @return \Kendo\Widget\Base
+     * @return Riesenia\Kendo\Widget\Base
      */
     public static function create($name, $bindTo = null)
     {
@@ -31,7 +31,7 @@ class Kendo
      * Create javascript function
      *
      * @param string
-     * @return \Kendo\Widget\Function
+     * @return Riesenia\Kendo\Widget\Function
      */
     public static function js($value)
     {
@@ -42,7 +42,7 @@ class Kendo
      * Create javascript date object
      *
      * @param string
-     * @return \Kendo\Widget\Function
+     * @return Riesenia\Kendo\Widget\Function
      */
     public static function date($value)
     {

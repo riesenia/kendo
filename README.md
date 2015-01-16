@@ -31,7 +31,7 @@ Any widget can be created calling the *create* method of *Kendo* class. For exam
 in `$("#grid").kendoGrid({ ... })` can be achieved by calling:
 
 ```php
-use Kendo\Kendo; 
+use Riesenia\Kendo\Kendo; 
 
 echo Kendo::create('Grid')->bindTo('#grid');
 ```
@@ -39,7 +39,7 @@ echo Kendo::create('Grid')->bindTo('#grid');
 or faster by:
 
 ```php
-use Kendo\Kendo; 
+use Riesenia\Kendo\Kendo; 
 
 echo Kendo::createGrid('#grid');
 ```
@@ -51,7 +51,7 @@ can be used. To NOT encode passed data, pass them wrapped by `Kendo::js()` call.
 chained. Examples:
 
 ```php
-use Kendo\Kendo; 
+use Riesenia\Kendo\Kendo; 
 
 $grid = Kendo::createGrid('#grid');
 
@@ -76,7 +76,7 @@ $grid->setDataSource(Kendo::createDataSource());
 Creating code for grid as in [this example](http://demos.telerik.com/kendo-ui/grid/local-data-binding "Grid - binding to local data"):
 
 ```php
-use Kendo\Kendo; 
+use Riesenia\Kendo\Kendo; 
 
 $model = Kendo::createModel()
     ->addField('ProductName', ['type' => 'string'])
@@ -110,7 +110,7 @@ Rendering for [Kendo observable](http://demos.telerik.com/kendo-ui/mvvm/index "M
 variable name is *viewModel*, but this can be overridden by the method *variableName*. Example:
 
 ```php
-use Kendo\Kendo; 
+use Riesenia\Kendo\Kendo; 
 
 echo Kendo::createObservable('#view')
     ->variableName('myMvvm')

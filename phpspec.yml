@@ -1,4 +1,4 @@
 suites:
     kendo_suite:
-        namespace: Kendo
-        psr4_prefix: Kendo
+        namespace: Riesenia\Kendo
+        psr4_prefix: Riesenia\Kendo

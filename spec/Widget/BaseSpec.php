@@ -1,10 +1,10 @@
 <?php
 
-namespace spec\Kendo\Widget;
+namespace spec\Riesenia\Kendo\Widget;
 
 use PhpSpec\ObjectBehavior;
 
-use Kendo\Kendo;
+use Riesenia\Kendo\Kendo;
 
 class BaseSpec extends ObjectBehavior
 {
@@ -15,7 +15,7 @@ class BaseSpec extends ObjectBehavior
 
     public function it_is_initializable_with_json_serializable()
     {
-        $this->shouldHaveType('Kendo\Widget\Base');
+        $this->shouldHaveType('Riesenia\Kendo\Widget\Base');
         $this->shouldImplement('\JsonSerializable');
     }
 

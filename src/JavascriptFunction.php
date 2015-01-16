@@ -1,5 +1,5 @@
 <?php
-namespace Kendo;
+namespace Riesenia\Kendo;
 
 /**
  * Class for representation of non-json-encoded values (e.g. javascript functions)

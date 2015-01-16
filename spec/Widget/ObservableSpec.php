@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Kendo\Widget;
+namespace spec\Riesenia\Kendo\Widget;
 
 use PhpSpec\ObjectBehavior;
 
@@ -8,8 +8,8 @@ class ObservableSpec extends ObjectBehavior
 {
     public function it_is_initializable_and_extends_base()
     {
-        $this->shouldHaveType('Kendo\Widget\Observable');
-        $this->shouldHaveType('Kendo\Widget\Base');
+        $this->shouldHaveType('Riesenia\Kendo\Widget\Observable');
+        $this->shouldHaveType('Riesenia\Kendo\Widget\Base');
     }
 
     public function it_renders_correctly()

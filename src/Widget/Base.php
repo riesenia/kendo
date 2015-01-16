@@ -1,5 +1,5 @@
 <?php
-namespace Kendo\Widget;
+namespace Riesenia\Kendo\Widget;
 
 /**
  * Base class for Kendo UI widgets

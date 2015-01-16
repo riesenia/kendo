@@ -1,5 +1,5 @@
 <?php
-namespace Kendo\Widget;
+namespace Riesenia\Kendo\Widget;
 
 /**
  * Kendo UI HierarchicalDataSource

@@ -1,6 +1,6 @@
 <?php
 
-namespace spec\Kendo;
+namespace spec\Riesenia\Kendo;
 
 use PhpSpec\ObjectBehavior;
 
@@ -13,7 +13,7 @@ class JavascriptFunctionSpec extends ObjectBehavior
 
     public function it_is_initializable_with_json_serializable()
     {
-        $this->shouldHaveType('Kendo\JavascriptFunction');
+        $this->shouldHaveType('Riesenia\Kendo\JavascriptFunction');
         $this->shouldImplement('\JsonSerializable');
     }
 
