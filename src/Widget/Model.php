@@ -22,7 +22,7 @@ class Model extends Base
      * @param array parameters
      * @return $this for method chaining
      */
-    public function addField($key, $value = array())
+    public function addField($key, $value = [])
     {
         return $this->add('fields', $key, $value);
     }

@@ -36,12 +36,12 @@ class BaseSpec extends ObjectBehavior
 
     public function it_can_add_to_data()
     {
-        $this->add('property', 'key1', 'value1')->add('property', 'key2', 'value2')->get('property')->shouldReturn(array('key1' => 'value1', 'key2' => 'value2'));
+        $this->add('property', 'key1', 'value1')->add('property', 'key2', 'value2')->get('property')->shouldReturn(['key1' => 'value1', 'key2' => 'value2']);
     }
 
     public function it_can_add_to_data_with_null_key()
     {
-        $this->add('property', null, 'value1')->add('property', null, 'value2')->get('property')->shouldReturn(array(0 => 'value1', 1 => 'value2'));
+        $this->add('property', null, 'value1')->add('property', null, 'value2')->get('property')->shouldReturn([0 => 'value1', 1 => 'value2']);
     }
 
     public function it_json_encodes_data()
