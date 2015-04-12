@@ -57,13 +57,19 @@ class Base implements \JsonSerializable
     /**
      * Property setter
      *
-     * @param string property name
+     * @param string|array property name or array of properties
      * @param mixed property value
      * @return $this for method chaining
      */
-    public function set($name, $value)
+    public function set($name, $value = null)
     {
-        $this->_data[$name] = $value;
+        if (!is_array($name)) {
+            $name = [$name => $value];
+        }
+
+        foreach ($name as $property => $value) {
+            $this->_data[$property] = $value;
+        }
 
         return $this;
     }

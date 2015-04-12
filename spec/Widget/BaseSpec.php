@@ -3,7 +3,6 @@
 namespace spec\Riesenia\Kendo\Widget;
 
 use PhpSpec\ObjectBehavior;
-
 use Riesenia\Kendo\Kendo;
 
 class BaseSpec extends ObjectBehavior
@@ -32,6 +31,13 @@ class BaseSpec extends ObjectBehavior
     public function it_can_set_data()
     {
         $this->set('property', 'value')->get('property')->shouldReturn('value');
+    }
+
+    public function it_can_set_data_by_array()
+    {
+        $this->set(['property1' => 'value1', 'property2' => 'value2']);
+        $this->get('property1')->shouldReturn('value1');
+        $this->get('property2')->shouldReturn('value2');
     }
 
     public function it_can_add_to_data()

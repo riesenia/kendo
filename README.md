@@ -47,8 +47,8 @@ echo Kendo::createGrid('#grid');
 ### Setting properties
 
 Any property can be set by calling *set* method. For adding to properties that are represented by array (or objects), *add* method
-can be used. To NOT encode passed data, pass them wrapped by `Kendo::js()` call. All the methods return the instance so calls can be
-chained. Examples:
+can be used. Set method can be also used for batch assignment by passing array as the only parameter. To NOT encode passed data,
+pass them wrapped by `Kendo::js()` call. All the methods return the instance so calls can be chained. Examples:
 
 ```php
 use Riesenia\Kendo\Kendo; 
@@ -62,6 +62,14 @@ $grid->setHeight(100);
 $grid->setChange(Kendo::js('function(e) {
     console.log(this.select());
 }'));
+
+// set properties by array
+$grid->set([
+    'height' => 100,
+    'change' => Kendo::js('function(e) {
+        console.log(this.select());
+    }')
+]);
 
 // add to property
 $grid->addColumns(null, 'Name')
