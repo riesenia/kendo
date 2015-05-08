@@ -57,7 +57,7 @@ class BaseSpec extends ObjectBehavior
 
     public function it_does_not_json_encode_functions()
     {
-        $this->set('property', Kendo::js('function () {}'))->__toString()->shouldReturn('new kendoGrid({"property":function () {}});');
+        $this->set('property', Kendo::js('function () { str = "ľščťžýáíé"; }'))->__toString()->shouldReturn('new kendoGrid({"property":function () { str = "ľščťžýáíé"; }});');
     }
 
     public function it_encodes_passed_object_properly()

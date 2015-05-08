@@ -130,7 +130,7 @@ class Base implements \JsonSerializable
     protected function _encode()
     {
         // json encode
-        $data = json_encode($this, JSON_UNESCAPED_SLASHES);
+        $data = json_encode($this, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
         // replace markup by JavacriptFunction
         $data = preg_replace_callback('/"::FUNCTION::(.*?)::FUNCTION::"/', function ($matches) {
