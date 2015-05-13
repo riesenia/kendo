@@ -23,7 +23,7 @@ class BaseSpec extends ObjectBehavior
         $this->__toString()->shouldReturn('new kendoGrid(null);');
     }
 
-    public function it_can_be_binded()
+    public function it_can_be_bound()
     {
         $this->bindTo('#id')->__toString()->shouldReturn('$("#id").kendoGrid(null);');
     }

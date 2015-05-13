@@ -17,7 +17,7 @@ class ObservableSpec extends ObjectBehavior
         $this->__toString()->shouldReturn('viewModel = kendo.observable(null);');
     }
 
-    public function it_can_be_binded()
+    public function it_can_be_bound()
     {
         $this->bindTo('#id')->__toString()->shouldReturn('viewModel = kendo.observable(null); kendo.bind($("#id"), viewModel);');
     }
