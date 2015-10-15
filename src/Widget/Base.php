@@ -42,10 +42,20 @@ class Base implements \JsonSerializable
     }
 
     /**
+     * Get widget name
+     *
+     * @return string
+     */
+    public function name()
+    {
+        return $this->_name;
+    }
+
+    /**
      * Set the jQuery selector for binding
      *
      * @param string
-     * @return $this for method chaining
+     * @return Riesenia\Kendo\Widget\Base
      */
     public function bindTo($selector)
     {
@@ -59,7 +69,7 @@ class Base implements \JsonSerializable
      *
      * @param string|array property name or array of properties
      * @param mixed property value
-     * @return $this for method chaining
+     * @return Riesenia\Kendo\Widget\Base
      */
     public function set($name, $value = null)
     {
@@ -80,7 +90,7 @@ class Base implements \JsonSerializable
      * @param string property name
      * @param string property key
      * @param mixed property value
-     * @return $this for method chaining
+     * @return Riesenia\Kendo\Widget\Base
      */
     public function add($name, $key, $value)
     {

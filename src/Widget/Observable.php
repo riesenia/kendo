@@ -26,7 +26,7 @@ class Observable extends Base
      * Change variable name
      *
      * @param string variable name
-     * @return $this for method chaining
+     * @return Riesenia\Kendo\Widget\Observable
      */
     public function variableName($name)
     {
