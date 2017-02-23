@@ -53,7 +53,7 @@ class Kendo
             return null;
         }
 
-        return new JavascriptFunction('new Date("' . @date('Y-m-d H:i:s', $timestamp) . '")');
+        return new JavascriptFunction('kendo.parseDate("' . @date('Y-m-d H:i:s', $timestamp) . '")');
     }
 
     /**
