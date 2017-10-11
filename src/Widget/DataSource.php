@@ -2,14 +2,14 @@
 namespace Riesenia\Kendo\Widget;
 
 /**
- * Kendo UI DataSource
+ * Kendo UI DataSource.
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class DataSource extends Base
 {
     /**
-     * Widget name
+     * Widget name.
      *
      * @var string
      */

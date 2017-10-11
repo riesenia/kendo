@@ -2,31 +2,32 @@
 namespace Riesenia\Kendo\Widget;
 
 /**
- * Kendo UI Observable
+ * Kendo UI Observable.
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class Observable extends Base
 {
     /**
-     * Widget name
+     * Widget name.
      *
      * @var string
      */
     protected $_name = 'kendo.observable';
 
     /**
-     * Variable name for observable
+     * Variable name for observable.
      *
      * @var string
      */
     protected $_var = 'viewModel';
 
     /**
-     * Change variable name
+     * Change variable name.
      *
-     * @param string variable name
-     * @return Riesenia\Kendo\Widget\Observable
+     * @param string $name variable name
+     *
+     * @return $this
      */
     public function variableName($name)
     {
@@ -36,7 +37,7 @@ class Observable extends Base
     }
 
     /**
-     * Return javascript code
+     * Return javascript code.
      *
      * @return string
      */

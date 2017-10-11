@@ -2,47 +2,47 @@
 namespace Riesenia\Kendo\Widget;
 
 /**
- * Base class for Kendo UI widgets
+ * Base class for Kendo UI widgets.
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class Base implements \JsonSerializable
 {
     /**
-     * Widget name
+     * Widget name.
      *
      * @var string
      */
-    protected $_name = null;
+    protected $_name;
 
     /**
-     * Selector for jQuery object
+     * Selector for jQuery object.
      *
      * @var string
      */
-    protected $_bindTo = null;
+    protected $_bindTo;
 
     /**
-     * Data
+     * Data.
      *
      * @var array
      */
     protected $_data = [];
 
     /**
-     * Create requested widget
+     * Create requested widget.
      *
-     * @param string widget name
+     * @param string|null $name
      */
     public function __construct($name = null)
     {
-        if (is_null($this->_name)) {
+        if ($this->_name === null) {
             $this->_name = $name;
         }
     }
 
     /**
-     * Get widget name
+     * Get widget name.
      *
      * @return string
      */
@@ -52,10 +52,11 @@ class Base implements \JsonSerializable
     }
 
     /**
-     * Set the jQuery selector for binding
+     * Set the jQuery selector for binding.
      *
-     * @param string
-     * @return Riesenia\Kendo\Widget\Base
+     * @param string $selector
+     *
+     * @return $this
      */
     public function bindTo($selector)
     {
@@ -65,11 +66,12 @@ class Base implements \JsonSerializable
     }
 
     /**
-     * Property setter
+     * Property setter.
      *
-     * @param string|array property name or array of properties
-     * @param mixed property value
-     * @return Riesenia\Kendo\Widget\Base
+     * @param array|string $name  property name or array of properties
+     * @param mixed|null   $value property value
+     *
+     * @return $this
      */
     public function set($name, $value = null)
     {
@@ -85,12 +87,13 @@ class Base implements \JsonSerializable
     }
 
     /**
-     * Property setter adding to associative arrays
+     * Property setter adding to associative arrays.
      *
-     * @param string property name
-     * @param string property key
-     * @param mixed property value
-     * @return Riesenia\Kendo\Widget\Base
+     * @param string $name
+     * @param string $key
+     * @param mixed  $value
+     *
+     * @return $this
      */
     public function add($name, $key, $value)
     {
@@ -98,7 +101,7 @@ class Base implements \JsonSerializable
             $this->_data[$name] = [];
         }
 
-        if (is_null($key)) {
+        if ($key === null) {
             $key = count($this->_data[$name]);
         }
 
@@ -108,9 +111,10 @@ class Base implements \JsonSerializable
     }
 
     /**
-     * Property getter
+     * Property getter.
      *
-     * @param string property name
+     * @param string $name
+     *
      * @return mixed property value
      */
     public function get($name)
@@ -123,17 +127,17 @@ class Base implements \JsonSerializable
     }
 
     /**
-     * json_encode call
+     * json_encode call.
      *
-     * @return mixed
+     * @return mixed|null
      */
     public function jsonSerialize()
     {
-        return $this->_data ? $this->_data : null;
+        return $this->_data ?: null;
     }
 
     /**
-     * Handle json_encode
+     * Handle json_encode.
      *
      * @return string
      */
@@ -151,7 +155,7 @@ class Base implements \JsonSerializable
     }
 
     /**
-     * Return javascript code
+     * Return javascript code.
      *
      * @return string
      */
@@ -168,10 +172,11 @@ class Base implements \JsonSerializable
     }
 
     /**
-     * Handle dynamic method calls
+     * Handle dynamic method calls.
      *
-     * @param string method name
-     * @param array arguments
+     * @param string $method
+     * @param array  $arguments
+     *
      * @return mixed
      */
     public function __call($method, $arguments)
@@ -191,6 +196,6 @@ class Base implements \JsonSerializable
             return call_user_func([$this, 'get'], lcfirst($matches[1]));
         }
 
-        throw new \BadMethodCallException("Unknown method: " . $method);
+        throw new \BadMethodCallException('Unknown method: ' . $method);
     }
 }
