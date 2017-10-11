@@ -2,14 +2,14 @@
 namespace Riesenia\Kendo\Widget;
 
 /**
- * Kendo UI TreeListDataSource
+ * Kendo UI TreeListDataSource.
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class TreeListDataSource extends DataSource
 {
     /**
-     * Widget name
+     * Widget name.
      *
      * @var string
      */

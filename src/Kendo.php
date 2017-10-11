@@ -2,17 +2,18 @@
 namespace Riesenia\Kendo;
 
 /**
- * Factory for Kendo UI widgets
+ * Factory for Kendo UI widgets.
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class Kendo
 {
     /**
-     * Create and return instance of requested Kendo widget
+     * Create and return instance of requested Kendo widget.
      *
-     * @param string widget name
-     * @param string optional binding
+     * @param string      $name
+     * @param string|null $bindTo
+     *
      * @return Riesenia\Kendo\Widget\Base
      */
     public static function create($name, $bindTo = null)
@@ -28,10 +29,11 @@ class Kendo
     }
 
     /**
-     * Create javascript function
+     * Create javascript function.
      *
-     * @param string
-     * @return Riesenia\Kendo\Widget\Function
+     * @param string $value
+     *
+     * @return JavascriptFunction
      */
     public static function js($value)
     {
@@ -39,37 +41,39 @@ class Kendo
     }
 
     /**
-     * Create javascript date object
+     * Create javascript date object.
      *
-     * @param string
-     * @return Riesenia\Kendo\Widget\Function
+     * @param string $value
+     *
+     * @return JavascriptFunction
      */
     public static function date($value)
     {
-        $timestamp = @strtotime($value);
+        $timestamp = strtotime($value);
 
         // wrong date format
         if (!$timestamp) {
             return null;
         }
 
-        return new JavascriptFunction('kendo.parseDate("' . @date('Y-m-d H:i:s', $timestamp) . '")');
+        return new JavascriptFunction('kendo.parseDate("' . date('Y-m-d H:i:s', $timestamp) . '")');
     }
 
     /**
-     * Handle dynamic static method calls
+     * Handle dynamic static method calls.
      *
-     * @param string method name
-     * @param array arguments
+     * @param string $method
+     * @param array  $arguments
+     *
      * @return mixed
      */
     public static function __callStatic($method, $arguments)
     {
         // create<Widget> method
         if (preg_match('/create([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return call_user_func(['static', 'create'], $matches[1], isset($arguments[0]) ? $arguments[0] : null);
+            return call_user_func(['static', 'create'], $matches[1], $arguments[0] ?? null);
         }
 
-        throw new \BadMethodCallException("Unknown method: " . $method);
+        throw new \BadMethodCallException('Unknown method: ' . $method);
     }
 }

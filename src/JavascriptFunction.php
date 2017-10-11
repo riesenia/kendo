@@ -2,23 +2,23 @@
 namespace Riesenia\Kendo;
 
 /**
- * Class for representation of non-json-encoded values (e.g. javascript functions)
+ * Class for representation of non-json-encoded values (e.g. javascript functions).
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class JavascriptFunction implements \JsonSerializable
 {
     /**
-     * Value
+     * Value.
      *
      * @var string
      */
-    protected $_value = null;
+    protected $_value;
 
     /**
-     * Constructor
+     * Constructor.
      *
-     * @param string
+     * @param string|null $value
      */
     public function __construct($value = null)
     {
@@ -26,9 +26,9 @@ class JavascriptFunction implements \JsonSerializable
     }
 
     /**
-     * json_encode call
+     * json_encode call.
      *
-     * @return mixed
+     * @return string
      */
     public function jsonSerialize()
     {

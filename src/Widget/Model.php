@@ -2,25 +2,26 @@
 namespace Riesenia\Kendo\Widget;
 
 /**
- * Kendo UI Model
+ * Kendo UI Model.
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class Model extends Base
 {
     /**
-     * Widget name
+     * Widget name.
      *
      * @var string
      */
     protected $_name = 'kendo.data.Model';
 
     /**
-     * Add field (alias of addFields)
+     * Add field (alias of addFields).
      *
-     * @param string field name
-     * @param array parameters
-     * @return $this for method chaining
+     * @param string $key
+     * @param array  $value
+     *
+     * @return $this
      */
     public function addField($key, $value = [])
     {
@@ -28,7 +29,7 @@ class Model extends Base
     }
 
     /**
-     * Return javascript code
+     * Return javascript code.
      *
      * @return string
      */

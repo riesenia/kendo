@@ -2,14 +2,14 @@
 namespace Riesenia\Kendo\Widget;
 
 /**
- * Kendo UI HierarchicalDataSource
+ * Kendo UI HierarchicalDataSource.
  *
  * @author Tomas Saghy <segy@riesenia.com>
  */
 class HierarchicalDataSource extends DataSource
 {
     /**
-     * Widget name
+     * Widget name.
      *
      * @var string
      */

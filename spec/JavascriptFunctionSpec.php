@@ -1,5 +1,4 @@
 <?php
-
 namespace spec\Riesenia\Kendo;
 
 use PhpSpec\ObjectBehavior;
