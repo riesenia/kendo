@@ -7,9 +7,7 @@
 
 [Kendo UI](http://www.telerik.com/kendo-ui) is a great JavaScript library. It offers both open-source and commercial editions.
 
-This library provides a wrapper for all Kendo UI widgets. Telerik provides [PHP wrappers](http://www.telerik.com/php-ui) itself,
-but these are unnecessarily complex and in addition they are payed. Our library is released under the MIT license, so you are free
-to use it in any project (even commercial projects) as long as the copyright header is left intact.
+This library provides a wrapper for all Kendo UI widgets. Telerik provides [PHP wrappers](http://www.telerik.com/php-ui) itself, but these are unnecessarily complex and in addition they are payed. Our library is released under the MIT license, so you are free to use it in any project (even commercial projects) as long as the copyright header is left intact.
 
 ## Installation
 
@@ -20,7 +18,7 @@ Or add to your *composer.json* file as a requirement:
 ```json
 {
     "require": {
-        "riesenia/kendo": "~2.0"
+        "riesenia/kendo": "~3.0"
     }
 }
 ```
@@ -29,8 +27,7 @@ Or add to your *composer.json* file as a requirement:
 
 ## Usage
 
-Any widget can be created calling the *create* method of *Kendo* class. For example creating a grid with selector *"#grid"* (resulting
-in `$("#grid").kendoGrid({ ... })` can be achieved by calling:
+Any widget can be created calling the *create* method of *Kendo* class. For example creating a grid with selector *"#grid"* (resulting in `$("#grid").kendoGrid({ ... })` can be achieved by calling:
 
 ```php
 use Riesenia\Kendo\Kendo; 
@@ -38,7 +35,7 @@ use Riesenia\Kendo\Kendo; 
 echo Kendo::create('Grid')->bindTo('#grid');
 ```
 
-or faster by:
+or by:
 
 ```php
 use Riesenia\Kendo\Kendo; 
@@ -48,9 +45,7 @@ echo Kendo::createGrid('#grid');
 
 ### Setting properties
 
-Any property can be set by calling *set* method. For adding to properties that are represented by array (or objects), *add* method
-can be used. Set method can be also used for batch assignment by passing array as the only parameter. To NOT encode passed data,
-pass them wrapped by `Kendo::js()` call. All the methods return the instance so calls can be chained. Examples:
+Any property can be set by calling *set* method. For adding to properties that are represented by array (or objects), *add* method can be used. Set method can be also used for batch assignment by passing array as the only parameter. To NOT encode passed data, pass them wrapped by `Kendo::js()` call. All method calls can be chained. Examples:
 
 ```php
 use Riesenia\Kendo\Kendo; 
@@ -116,8 +111,7 @@ echo Kendo::createGrid('#grid')
 
 ### Observable (MVVM)
 
-Rendering for [Kendo observable](http://demos.telerik.com/kendo-ui/mvvm/index "MVVM - basic usage") is slightly different. Predefined
-variable name is *viewModel*, but this can be overridden by the method *variableName*. Example:
+Rendering for [Kendo observable](http://demos.telerik.com/kendo-ui/mvvm/index "MVVM - basic usage") is slightly different. Predefined variable name is *viewModel*, but this can be overridden by the method *variableName*. Example:
 
 ```php
 use Riesenia\Kendo\Kendo; 
@@ -143,11 +137,3 @@ myMvvm = kendo.observable({
 });
 kendo.bind($("#view"), myMvvm);
 ```
-
-## Tests
-
-You can run the unit tests with the following command:
-
-    $ cd path/to/riesenia/kendo
-    $ composer install
-    $ vendor/bin/phpspec run
