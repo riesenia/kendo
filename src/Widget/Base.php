@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of riesenia/kendo package.
+ *
+ * Licensed under the MIT License
+ * (c) RIESENIA.com
+ */
+
+declare(strict_types=1);
+
 namespace Riesenia\Kendo\Widget;
 
 /**
@@ -32,11 +41,11 @@ class Base implements \JsonSerializable
     /**
      * Create requested widget.
      *
-     * @param string|null $name
+     * @param string $name
      */
-    public function __construct($name = null)
+    public function __construct(string $name = '')
     {
-        if ($this->_name === null) {
+        if ($name) {
             $this->_name = $name;
         }
     }
@@ -46,7 +55,7 @@ class Base implements \JsonSerializable
      *
      * @return string
      */
-    public function name()
+    public function name(): string
     {
         return $this->_name;
     }
@@ -58,7 +67,7 @@ class Base implements \JsonSerializable
      *
      * @return $this
      */
-    public function bindTo($selector)
+    public function bindTo(string $selector): self
     {
         $this->_bindTo = $selector;
 
@@ -69,11 +78,11 @@ class Base implements \JsonSerializable
      * Property setter.
      *
      * @param array|string $name  property name or array of properties
-     * @param mixed|null   $value property value
+     * @param mixed        $value property value
      *
      * @return $this
      */
-    public function set($name, $value = null)
+    public function set($name, $value = null): self
     {
         if (!is_array($name)) {
             $name = [$name => $value];
@@ -89,13 +98,13 @@ class Base implements \JsonSerializable
     /**
      * Property setter adding to associative arrays.
      *
-     * @param string $name
-     * @param string $key
-     * @param mixed  $value
+     * @param string      $name
+     * @param string|null $key
+     * @param mixed       $value
      *
      * @return $this
      */
-    public function add($name, $key, $value)
+    public function add(string $name, ?string $key, $value): self
     {
         if (!isset($this->_data[$name])) {
             $this->_data[$name] = [];
@@ -117,7 +126,7 @@ class Base implements \JsonSerializable
      *
      * @return mixed property value
      */
-    public function get($name)
+    public function get(string $name)
     {
         if (!isset($this->_data[$name])) {
             return null;
@@ -129,9 +138,9 @@ class Base implements \JsonSerializable
     /**
      * json_encode call.
      *
-     * @return mixed|null
+     * @return array|null
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): ?array
     {
         return $this->_data ?: null;
     }
@@ -141,7 +150,7 @@ class Base implements \JsonSerializable
      *
      * @return string
      */
-    protected function _encode()
+    protected function _encode(): string
     {
         // json encode
         $data = json_encode($this, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
@@ -159,7 +168,7 @@ class Base implements \JsonSerializable
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $data = $this->_encode();
 
@@ -179,7 +188,7 @@ class Base implements \JsonSerializable
      *
      * @return mixed
      */
-    public function __call($method, $arguments)
+    public function __call(string $method, array $arguments)
     {
         // set<Attribute> for setting object attributes
         if (preg_match('/set([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {

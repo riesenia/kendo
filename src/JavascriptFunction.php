@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of riesenia/kendo package.
+ *
+ * Licensed under the MIT License
+ * (c) RIESENIA.com
+ */
+
+declare(strict_types=1);
+
 namespace Riesenia\Kendo;
 
 /**
@@ -18,9 +27,9 @@ class JavascriptFunction implements \JsonSerializable
     /**
      * Constructor.
      *
-     * @param string|null $value
+     * @param string $value
      */
-    public function __construct($value = null)
+    public function __construct(string $value)
     {
         $this->_value = $value;
     }
@@ -30,7 +39,7 @@ class JavascriptFunction implements \JsonSerializable
      *
      * @return string
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): string
     {
         return '::FUNCTION::' . $this->_value . '::FUNCTION::';
     }

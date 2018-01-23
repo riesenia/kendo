@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of riesenia/kendo package.
+ *
+ * Licensed under the MIT License
+ * (c) RIESENIA.com
+ */
+
+declare(strict_types=1);
+
 namespace Riesenia\Kendo\Widget;
 
 /**
@@ -23,7 +32,7 @@ class Model extends Base
      *
      * @return $this
      */
-    public function addField($key, $value = [])
+    public function addField(string $key, array $value = []): self
     {
         return $this->add('fields', $key, $value);
     }
@@ -33,7 +42,7 @@ class Model extends Base
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $data = $this->_encode();
 

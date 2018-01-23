@@ -1,5 +1,16 @@
 <?php
+/**
+ * This file is part of riesenia/kendo package.
+ *
+ * Licensed under the MIT License
+ * (c) RIESENIA.com
+ */
+
+declare(strict_types=1);
+
 namespace Riesenia\Kendo;
+
+use Riesenia\Kendo\Widget\Base;
 
 /**
  * Factory for Kendo UI widgets.
@@ -11,12 +22,12 @@ class Kendo
     /**
      * Create and return instance of requested Kendo widget.
      *
-     * @param string      $name
-     * @param string|null $bindTo
+     * @param string $name
+     * @param string $bindTo
      *
-     * @return Riesenia\Kendo\Widget\Base
+     * @return Base
      */
-    public static function create($name, $bindTo = null)
+    public static function create(string $name, string $bindTo = ''): Base
     {
         $fullName = __NAMESPACE__ . '\\Widget\\' . $name;
         $widget = class_exists($fullName) ? new $fullName() : new Widget\Base('kendo' . $name);
@@ -35,7 +46,7 @@ class Kendo
      *
      * @return JavascriptFunction
      */
-    public static function js($value)
+    public static function js(string $value): JavascriptFunction
     {
         return new JavascriptFunction($value);
     }
@@ -45,9 +56,9 @@ class Kendo
      *
      * @param string $value
      *
-     * @return JavascriptFunction
+     * @return JavascriptFunction|null
      */
-    public static function date($value)
+    public static function date(string $value): ?JavascriptFunction
     {
         $timestamp = strtotime($value);
 
@@ -67,7 +78,7 @@ class Kendo
      *
      * @return mixed
      */
-    public static function __callStatic($method, $arguments)
+    public static function __callStatic(string $method, array $arguments)
     {
         // create<Widget> method
         if (preg_match('/create([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {

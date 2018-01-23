@@ -1,4 +1,13 @@
 <?php
+/**
+ * This file is part of riesenia/kendo package.
+ *
+ * Licensed under the MIT License
+ * (c) RIESENIA.com
+ */
+
+declare(strict_types=1);
+
 namespace Riesenia\Kendo\Widget;
 
 /**
@@ -29,7 +38,7 @@ class Observable extends Base
      *
      * @return $this
      */
-    public function variableName($name)
+    public function variableName(string $name): self
     {
         $this->_var = $name;
 
@@ -41,7 +50,7 @@ class Observable extends Base
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         $data = $this->_encode();
 
