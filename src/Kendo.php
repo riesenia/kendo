@@ -82,7 +82,7 @@ class Kendo
     {
         // create<Widget> method
         if (preg_match('/create([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return call_user_func(['static', 'create'], $matches[1], $arguments[0] ?? null);
+            return call_user_func(['static', 'create'], $matches[1], $arguments[0] ?? '');
         }
 
         throw new \BadMethodCallException('Unknown method: ' . $method);
