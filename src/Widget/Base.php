@@ -155,6 +155,10 @@ class Base implements \JsonSerializable
         // json encode
         $data = json_encode($this, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
+        if ($data === false) {
+            throw new \Exception('Invalid data');
+        }
+
         // replace markup by JavacriptFunction
         $data = preg_replace_callback('/"::FUNCTION::(.*?)::FUNCTION::"/', function ($matches) {
             return stripcslashes($matches[1]);
