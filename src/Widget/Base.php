@@ -196,17 +196,17 @@ class Base implements \JsonSerializable
     {
         // set<Attribute> for setting object attributes
         if (preg_match('/set([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return call_user_func([$this, 'set'], lcfirst($matches[1]), $arguments[0]);
+            return $this->set(lcfirst($matches[1]), $arguments[0]);
         }
 
         // add<Attribute> for adding to array object attributes
         if (preg_match('/add([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return call_user_func([$this, 'add'], lcfirst($matches[1]), $arguments[0], $arguments[1]);
+            return $this->add(lcfirst($matches[1]), $arguments[0], $arguments[1]);
         }
 
         // get<Attribute> for getting object attributes
         if (preg_match('/get([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return call_user_func([$this, 'get'], lcfirst($matches[1]));
+            return $this->get(lcfirst($matches[1]));
         }
 
         throw new \BadMethodCallException('Unknown method: ' . $method);
