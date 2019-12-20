@@ -162,7 +162,7 @@ class Base implements \JsonSerializable
         // replace markup by JavacriptFunction
         $data = preg_replace_callback('/"::FUNCTION::(.*?)::FUNCTION::"/', function ($matches) {
             return stripcslashes($matches[1]);
-        }, $data);
+        }, $data) ?: '';
 
         return $data;
     }
