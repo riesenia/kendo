@@ -84,7 +84,7 @@ class Base implements \JsonSerializable
      */
     public function set($name, $value = null): self
     {
-        if (!is_array($name)) {
+        if (!\is_array($name)) {
             $name = [$name => $value];
         }
 
@@ -111,7 +111,7 @@ class Base implements \JsonSerializable
         }
 
         if ($key === null) {
-            $key = count($this->_data[$name]);
+            $key = \count($this->_data[$name]);
         }
 
         $this->_data[$name][$key] = $value;
@@ -153,15 +153,15 @@ class Base implements \JsonSerializable
     protected function _encode(): string
     {
         // json encode
-        $data = json_encode($this, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $data = \json_encode($this, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
 
         if ($data === false) {
             throw new \Exception('Invalid data');
         }
 
         // replace markup by JavacriptFunction
-        $data = preg_replace_callback('/"::FUNCTION::(.*?)::FUNCTION::"/', function ($matches) {
-            return stripcslashes($matches[1]);
+        $data = \preg_replace_callback('/"::FUNCTION::(.*?)::FUNCTION::"/', function ($matches) {
+            return \stripcslashes($matches[1]);
         }, $data) ?: '';
 
         return $data;
@@ -195,18 +195,18 @@ class Base implements \JsonSerializable
     public function __call(string $method, array $arguments)
     {
         // set<Attribute> for setting object attributes
-        if (preg_match('/set([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return $this->set(lcfirst($matches[1]), $arguments[0]);
+        if (\preg_match('/set([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
+            return $this->set(\lcfirst($matches[1]), $arguments[0]);
         }
 
         // add<Attribute> for adding to array object attributes
-        if (preg_match('/add([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return $this->add(lcfirst($matches[1]), $arguments[0], $arguments[1]);
+        if (\preg_match('/add([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
+            return $this->add(\lcfirst($matches[1]), $arguments[0], $arguments[1]);
         }
 
         // get<Attribute> for getting object attributes
-        if (preg_match('/get([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return $this->get(lcfirst($matches[1]));
+        if (\preg_match('/get([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
+            return $this->get(\lcfirst($matches[1]));
         }
 
         throw new \BadMethodCallException('Unknown method: ' . $method);

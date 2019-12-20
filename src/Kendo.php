@@ -30,7 +30,7 @@ class Kendo
     public static function create(string $name, string $bindTo = ''): Base
     {
         $fullName = __NAMESPACE__ . '\\Widget\\' . $name;
-        $widget = class_exists($fullName) ? new $fullName() : new Widget\Base('kendo' . $name);
+        $widget = \class_exists($fullName) ? new $fullName() : new Widget\Base('kendo' . $name);
 
         if ($bindTo) {
             $widget->bindTo($bindTo);
@@ -60,14 +60,14 @@ class Kendo
      */
     public static function date(string $value): ?JavascriptFunction
     {
-        $timestamp = strtotime($value);
+        $timestamp = \strtotime($value);
 
         // wrong date format
         if (!$timestamp) {
             return null;
         }
 
-        return new JavascriptFunction('kendo.parseDate("' . date('Y-m-d H:i:s', $timestamp) . '")');
+        return new JavascriptFunction('kendo.parseDate("' . \date('Y-m-d H:i:s', $timestamp) . '")');
     }
 
     /**
@@ -81,7 +81,7 @@ class Kendo
     public static function __callStatic(string $method, array $arguments)
     {
         // create<Widget> method
-        if (preg_match('/create([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
+        if (\preg_match('/create([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
             return static::create($matches[1], $arguments[0] ?? '');
         }
 
