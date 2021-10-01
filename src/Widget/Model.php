@@ -27,8 +27,8 @@ class Model extends Base
     /**
      * Add field (alias of addFields).
      *
-     * @param string $key
-     * @param array  $value
+     * @param string              $key
+     * @param array<string,mixed> $value
      *
      * @return $this
      */

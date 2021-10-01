@@ -73,8 +73,8 @@ class Kendo
     /**
      * Handle dynamic static method calls.
      *
-     * @param string $method
-     * @param array  $arguments
+     * @param string  $method
+     * @param mixed[] $arguments
      *
      * @return mixed
      */

@@ -34,7 +34,7 @@ class Base implements \JsonSerializable
     /**
      * Data.
      *
-     * @var array
+     * @var array<int|string,mixed>
      */
     protected $_data = [];
 
@@ -77,8 +77,8 @@ class Base implements \JsonSerializable
     /**
      * Property setter.
      *
-     * @param array|string $name  property name or array of properties
-     * @param mixed        $value property value
+     * @param array<string,mixed>|string $name  property name or array of properties
+     * @param mixed                      $value property value
      *
      * @return $this
      */
@@ -138,7 +138,7 @@ class Base implements \JsonSerializable
     /**
      * json_encode call.
      *
-     * @return array|null
+     * @return array<int|string,mixed>|null
      */
     public function jsonSerialize(): ?array
     {
@@ -187,8 +187,8 @@ class Base implements \JsonSerializable
     /**
      * Handle dynamic method calls.
      *
-     * @param string $method
-     * @param array  $arguments
+     * @param string  $method
+     * @param mixed[] $arguments
      *
      * @return mixed
      */
