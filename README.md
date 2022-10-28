@@ -1,13 +1,13 @@
 # PHP wrapper for Kendo UI widgets
 
-[![Build Status](https://img.shields.io/travis/riesenia/kendo/master.svg?style=flat-square)](https://travis-ci.org/riesenia/kendo)
+[![Build Status](https://github.com/riesenia/kendo/workflows/Test/badge.svg)](https://github.com/riesenia/kendo/actions)
 [![Latest Version](https://img.shields.io/packagist/v/riesenia/kendo.svg?style=flat-square)](https://packagist.org/packages/riesenia/kendo)
 [![Total Downloads](https://img.shields.io/packagist/dt/riesenia/kendo.svg?style=flat-square)](https://packagist.org/packages/riesenia/kendo)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 [Kendo UI](http://www.telerik.com/kendo-ui) is a great JavaScript library. It offers both open-source and commercial editions.
 
-This library provides a wrapper for all Kendo UI widgets. Telerik provides [PHP wrappers](http://www.telerik.com/php-ui) itself, but these are unnecessarily complex and in addition they are payed. Our library is released under the MIT license, so you are free to use it in any project (even commercial projects) as long as the copyright header is left intact.
+This library provides a wrapper for all Kendo UI widgets. Telerik provides [PHP wrappers](http://www.telerik.com/php-ui) itself, but these are unnecessarily complex and in addition they are paid. Our library is released under the MIT license, so you are free to use it in any project (even commercial projects) as long as the copyright header is left intact.
 
 ## Installation
 
@@ -78,7 +78,7 @@ $grid->setDataSource(Kendo::createDataSource());
 
 ### Complex example
 
-Creating code for grid as in [this example](http://demos.telerik.com/kendo-ui/grid/local-data-binding "Grid - binding to local data"):
+Creating code for grid as in [this example](https://demos.telerik.com/kendo-ui/grid/local-data-binding "Grid - binding to local data"):
 
 ```php
 use Riesenia\Kendo\Kendo; 
@@ -111,7 +111,7 @@ echo Kendo::createGrid('#grid')
 
 ### Observable (MVVM)
 
-Rendering for [Kendo observable](http://demos.telerik.com/kendo-ui/mvvm/index "MVVM - basic usage") is slightly different. Predefined variable name is *viewModel*, but this can be overridden by the method *variableName*. Example:
+Rendering for [Kendo observable](https://demos.telerik.com/kendo-ui/mvvm/index "MVVM - basic usage") is slightly different. Predefined variable name is *viewModel*, but this can be overridden by the method *variableName*. Example:
 
 ```php
 use Riesenia\Kendo\Kendo; 
