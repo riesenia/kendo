@@ -35,6 +35,16 @@ class JavascriptFunction implements \JsonSerializable
     }
 
     /**
+     * Value getter.
+     *
+     * @return string
+     */
+    public function getValue(): string
+    {
+        return $this->_value;
+    }
+
+    /**
      * json_encode call.
      *
      * @return string
