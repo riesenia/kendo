@@ -16,6 +16,11 @@ use Riesenia\Kendo\Widget\Base;
  * Factory for Kendo UI widgets.
  *
  * @author Tomas Saghy <segy@riesenia.com>
+ *
+ * @method static Riesenia\Kendo\Widget\Form createForm(string $bindTo = '') Create a form widget.
+ * @method static Riesenia\Kendo\Widget\Grid createGrid(string $bindTo = '') Create a grid widget.
+ * @method static Riesenia\Kendo\Widget\Window createWindow(string $bindTo = '') Create a window widget.
+ * @method static Riesenia\Kendo\Widget\DropDownTree createDropDownTree(string $bindTo = '') Create a drop down tree widget.
  */
 class Kendo
 {
@@ -30,6 +35,7 @@ class Kendo
     public static function create(string $name, string $bindTo = ''): Base
     {
         $fullName = __NAMESPACE__ . '\\Widget\\' . $name;
+        /** @var Widget\Base */
         $widget = \class_exists($fullName) ? new $fullName() : new Widget\Base('kendo' . $name);
 
         if ($bindTo) {
@@ -82,6 +88,10 @@ class Kendo
     {
         // create<Widget> method
         if (\preg_match('/create([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
+            if (!is_string($arguments[0] ?? '')) {
+                throw new \InvalidArgumentException('BindTo must be a string');
+            }
+
             return static::create($matches[1], $arguments[0] ?? '');
         }
 

@@ -110,6 +110,10 @@ class Base implements \JsonSerializable
             $this->_data[$name] = [];
         }
 
+        if (!is_array($this->_data[$name])) {
+            throw new \TypeError('Property ' . $name . ' is not an array');
+        }
+
         if ($key === null) {
             $key = \count($this->_data[$name]);
         }
@@ -201,7 +205,13 @@ class Base implements \JsonSerializable
 
         // add<Attribute> for adding to array object attributes
         if (\preg_match('/add([A-Z][a-zA-Z0-9]*)/', $method, $matches)) {
-            return $this->add(\lcfirst($matches[1]), $arguments[0], $arguments[1]);
+            $key = $arguments[0];
+
+            if (!is_string($key) && $key !== null) {
+                throw new \TypeError('Key must be a string or null');
+            }
+
+            return $this->add(\lcfirst($matches[1]), $key, $arguments[1]);
         }
 
         // get<Attribute> for getting object attributes
