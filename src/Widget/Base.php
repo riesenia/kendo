@@ -152,16 +152,18 @@ class Base implements \JsonSerializable
      */
     protected function _encode(): string
     {
-        // json encode
-        $data = \json_encode($this, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        // json encode (JSON_HEX_TAG escapes < and > so the output is safe inside an inline <script>)
+        $data = \json_encode($this, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG);
 
         if ($data === false) {
             throw new \Exception('Invalid data');
         }
 
-        // replace markup by JavacriptFunction
+        // replace markup by JavacriptFunction (decode the JSON string back to raw javascript code)
         $data = \preg_replace_callback('/"::FUNCTION::(.*?)::FUNCTION::"/', function ($matches) {
-            return \stripcslashes($matches[1]);
+            $code = \json_decode('"' . $matches[1] . '"');
+
+            return \is_string($code) ? $code : \stripcslashes($matches[1]);
         }, $data) ?: '';
 
         return $data;

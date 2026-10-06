@@ -76,4 +76,14 @@ class BaseSpec extends ObjectBehavior
             void(0);
         }}});');
     }
+
+    public function it_escapes_html_tags_to_prevent_script_breakout()
+    {
+        $this->set('name', '</script><script>alert(1)</script>')->__toString()->shouldReturn('new kendoGrid({"name":"\\u003C/script\\u003E\\u003Cscript\\u003Ealert(1)\\u003C/script\\u003E"});');
+    }
+
+    public function it_keeps_html_tags_and_special_characters_in_functions()
+    {
+        $this->set('property', Kendo::js('function (a, b) { return a < b && b > 0 ? "<b>" + \'x\' + "</b>" : "\\n"; }'))->__toString()->shouldReturn('new kendoGrid({"property":function (a, b) { return a < b && b > 0 ? "<b>" + \'x\' + "</b>" : "\\n"; }});');
+    }
 }
